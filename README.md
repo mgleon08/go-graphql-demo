@@ -62,4 +62,10 @@ query {
 }
 ```
 
+### Update Schema
+
+```go
+go run github.com/99designs/gqlgen generate
+```
+
 * [graphql-go Tutorial - Introduction](https://www.howtographql.com/graphql-go/0-introduction/)

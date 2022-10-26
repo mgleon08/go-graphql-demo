@@ -16,6 +16,7 @@ type User {
 
 type Query {
   links: [Link!]!
+  users: [User!]!
 }
 
 input NewLink {
@@ -39,7 +40,7 @@ input Login {
 
 type Mutation {
   createLink(input: NewLink!): Link!
-  createUser(input: NewUser!): String!
+  createUser(input: NewUser!): User!
   login(input: Login!): String!
   # we'll talk about this in authentication section
   refreshToken(input: RefreshTokenInput!): String!
