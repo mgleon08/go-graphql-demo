@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  db:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=dbpass
+      - MYSQL_DATABASE=hackernews
+    ports:
+      - '3306:3306'
