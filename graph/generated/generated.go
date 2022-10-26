@@ -7,7 +7,7 @@ import (
 	"context"
 	"errors"
 	"fmt"
-	"graphql/graph/model"
+	"example/graph/model"
 	"strconv"
 	"sync"
 	"sync/atomic"
