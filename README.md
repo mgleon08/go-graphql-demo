@@ -66,9 +66,8 @@ query {
   }
 }
 
-
-query {
-	users {
+{
+	users(count:2) {
     id
     name
   }

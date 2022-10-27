@@ -59,13 +59,15 @@ func (r *queryResolver) Links(ctx context.Context) ([]*model.Link, error) {
 }
 
 // Users is the resolver for the users field.
-func (r *queryResolver) Users(ctx context.Context) ([]*model.User, error) {
+func (r *queryResolver) Users(ctx context.Context, count *int) ([]*model.User, error) {
 	var resultUsers []*model.User
 	var dbUsers []users.User
 	dbUsers = users.GetAll()
 	for _, user := range dbUsers {
 		resultUsers = append(resultUsers, &model.User{ID: user.ID, Name: user.Username})
 	}
+
+	resultUsers = resultUsers[0:*count]
 	return resultUsers, nil
 }
 

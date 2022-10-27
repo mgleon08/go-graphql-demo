@@ -16,7 +16,7 @@ type User {
 
 type Query {
   links: [Link!]!
-  users: [User!]!
+  users(count: Int = 10): [User!]!
 }
 
 input NewLink {
