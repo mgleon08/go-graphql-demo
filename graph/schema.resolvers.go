@@ -20,6 +20,7 @@ func (r *mutationResolver) CreateLink(ctx context.Context, input model.NewLink) 
 	var link links.Link
 	link.Title = input.Title
 	link.Address = input.Address
+	link.Userid = input.Userid
 	linkID := link.Save()
 	return &model.Link{ID: strconv.FormatInt(linkID, 10), Title: link.Title, Address: link.Address}, nil
 }
@@ -51,7 +52,8 @@ func (r *queryResolver) Links(ctx context.Context) ([]*model.Link, error) {
 	var dbLinks []links.Link
 	dbLinks = links.GetAll()
 	for _, link := range dbLinks {
-		resultLinks = append(resultLinks, &model.Link{ID: link.ID, Title: link.Title, Address: link.Address})
+		user := &model.User{ID: link.User.ID, Name: link.User.Username}
+		resultLinks = append(resultLinks, &model.Link{ID: link.ID, Title: link.Title, Address: link.Address, User: user})
 	}
 	return resultLinks, nil
 }

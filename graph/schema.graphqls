@@ -22,6 +22,7 @@ type Query {
 input NewLink {
   title: String!
   address: String!
+  userid: String!
 }
 
 input RefreshTokenInput{

@@ -35,13 +35,18 @@ go run server.go
 ###  Mutation
 
 ```go
-mutation {
-  createLink(input: {title: "new link", address:"http://address.org"}){
+mutation create{
+  createUser(input: {username: "user1", password: "password1"}){
+    id
+    name
+  }
+}
+
+mutation create{
+  createLink(input: {title: "title1", address: "http://address1.com", userid: "1"}){
+    id,
     title,
-    user{
-      name
-    }
-    address
+    address,
   }
 }
 ```
@@ -58,6 +63,14 @@ query {
       id
       name
     }
+  }
+}
+
+
+query {
+	users {
+    id
+    name
   }
 }
 ```
