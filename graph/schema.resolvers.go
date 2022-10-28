@@ -9,7 +9,6 @@ import (
 	"example/graph/model"
 	"example/internal/links"
 	"example/internal/users"
-	"fmt"
 	"strconv"
 )
 
@@ -34,16 +33,6 @@ func (r *mutationResolver) CreateUser(ctx context.Context, input model.NewUser) 
 	user.Password = input.Password
 	userID := user.Save()
 	return &model.User{ID: strconv.FormatInt(userID, 10), Name: user.Username}, nil
-}
-
-// Login is the resolver for the login field.
-func (r *mutationResolver) Login(ctx context.Context, input model.Login) (string, error) {
-	panic(fmt.Errorf("not implemented: Login - login"))
-}
-
-// RefreshToken is the resolver for the refreshToken field.
-func (r *mutationResolver) RefreshToken(ctx context.Context, input model.RefreshTokenInput) (string, error) {
-	panic(fmt.Errorf("not implemented: RefreshToken - refreshToken"))
 }
 
 // Links is the resolver for the links field.

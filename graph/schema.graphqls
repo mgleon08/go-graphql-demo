@@ -25,16 +25,7 @@ input NewLink {
   userid: String!
 }
 
-input RefreshTokenInput{
-  token: String!
-}
-
 input NewUser {
-  username: String!
-  password: String!
-}
-
-input Login {
   username: String!
   password: String!
 }
@@ -42,7 +33,4 @@ input Login {
 type Mutation {
   createLink(input: NewLink!): Link!
   createUser(input: NewUser!): User!
-  login(input: Login!): String!
-  # we'll talk about this in authentication section
-  refreshToken(input: RefreshTokenInput!): String!
 }
