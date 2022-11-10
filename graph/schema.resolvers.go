@@ -60,6 +60,11 @@ func (r *queryResolver) Users(ctx context.Context, count *int) ([]*model.User, e
 	return resultUsers, nil
 }
 
+// Login is the resolver for the login field.
+// func (r *mutationResolver) Login(ctx context.Context, input model.Login) (string, error) {
+// 	panic(fmt.Errorf("not implemented: Login - login"))
+// }
+
 // Mutation returns generated.MutationResolver implementation.
 func (r *Resolver) Mutation() generated.MutationResolver { return &mutationResolver{r} }
 
